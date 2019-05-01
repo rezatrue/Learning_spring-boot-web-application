@@ -3,7 +3,11 @@
 		<title>JSP page</title>
 	</head>
 	<body>
-		<h1>Welcome ${name} to JSP page<h1>
+		<form method="POST">
+				Name : <input name="name" type="text" />
+				Password : <input name="password" type="password"/>
+				<input type="submit"/>
+		</form>
 	</body>
 
 </html>

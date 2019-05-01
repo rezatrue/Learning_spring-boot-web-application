@@ -33,8 +33,10 @@ Step 05 : sending request param to view
 
 public String Login(@RequestParam String name, ModelMap model) {
 		model.put("name", name);
-		
-		
-in view (jsp): ${name}	
-
 	
+in view (jsp):-> ${name}	
+
+Step 07 : Get & Post 
+
+@RequestMapping(value = "/login", method = RequestMethod.GET)
+@RequestMapping(value = "/login", method = RequestMethod.POST)
