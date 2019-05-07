@@ -40,3 +40,42 @@ Step 07 : Get & Post
 
 @RequestMapping(value = "/login", method = RequestMethod.GET)
 @RequestMapping(value = "/login", method = RequestMethod.POST)
+
+Step 08 : Dependency injection
+
+@Component
+public class LoginService {
+.............
+
+@Autowired
+LoginService loginService; 
+
+Step 12 : Session
+
+@Controller
+@SessionAttributes("name")
+public class TodoController
+.........
+
+Step 13 & 14 : 
+
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>jstl</artifactId>
+</dependency>
+
+......
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+.....
+
+<c:forEach items="${todos}" var="item" varStatus="loop">
+	<tr>
+		<td>${loop.index}</td>
+		<td>${item.desc}</td>
+		<td>${item.targetDate}</td>
+		<td>${item.done}</td>
+	</tr>
+</c:forEach>
+.....
+
