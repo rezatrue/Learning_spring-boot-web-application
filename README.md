@@ -115,3 +115,12 @@ Step 15 : Bootstrap
 		</div>
 	</body>	
 
+Step 16 : Delete button
+
+	<a href="/delete-todo?id=${item.id}">....</a>
+
+	@RequestMapping(value = "/delete-todo", method = RequestMethod.GET)
+	public String deleteTodo(@RequestParam int id) {
+		service.deleteTodo(id);
+		return "redirect:/list-todos";
+	}

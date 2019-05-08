@@ -14,6 +14,7 @@
 				<th>Description</th>
 				<th>Target Date</th>
 				<th>Done</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,13 +24,13 @@
 				<td>${item.desc}</td>
 				<td>${item.targetDate}</td>
 				<td>${item.done}</td>
-				
+				<td><div><a type ="button" class="btn btn-warning" href="/delete-todo?id=${item.id}">Delete</a></div></td>
 			</tr>
 		</c:forEach>
 		
 		</tbody>
 		</table>
-				<div ><a href="/add-todo" class="button">Add ToDo</a></div>
+				<div ><a href="/add-todo" type="button">Add ToDo</a></div>
 
 
 		<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
