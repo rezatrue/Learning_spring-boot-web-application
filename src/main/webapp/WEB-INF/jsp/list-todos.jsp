@@ -2,10 +2,12 @@
 	<head>
 		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 		<title>Welcome TODOs page</title>
+		<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<h1>ToDos for ${name} </h1> <br>
-		<table>
+		<div class="container">
+		<h1>ToDos for ${name} </h1>
+		<table class="table  table-striped">
 		<thead>
 			<tr>
 				<th>Sl.No.</th>
@@ -27,7 +29,12 @@
 		
 		</tbody>
 		</table>
-				<a href="/add-todo"> Add ToDo</a>
+				<div ><a href="/add-todo" class="button">Add ToDo</a></div>
+
+
+		<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+	    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		</div>
 	</body>
 
 </html>

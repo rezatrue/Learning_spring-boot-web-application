@@ -57,7 +57,7 @@ Step 12 : Session
 public class TodoController
 .........
 
-Step 13 & 14 : 
+Step 13 & 14 : JSTL
 
 <dependency>
 	<groupId>javax.servlet</groupId>
@@ -78,4 +78,40 @@ Step 13 & 14 :
 	</tr>
 </c:forEach>
 .....
+
+Step 15 : Bootstrap
+
+<dependency>
+	<groupId>org.webjars</groupId>
+	<artifactId>bootstrap</artifactId>
+	<version>3.3.6</version>
+</dependency>
+<dependency>
+	<groupId>org.webjars</groupId>
+	<artifactId>jquery</artifactId>
+	<version>1.9.1</version>
+</dependency>
+
+
+<html>
+	<head>
+		......................
+		<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+		
+		..........................
+		<table class="table  table-striped">
+		
+		
+		..........................
+		
+		<div ><a ............. class="button">........</a></div>
+		
+		.......................
+		<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+	    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		</div>
+	</body>	
 
