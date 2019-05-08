@@ -110,9 +110,10 @@ Step 15 : Bootstrap
 		<div ><a ............. class="button">........</a></div>
 		
 		.......................
+		</div>
 		<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 	    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		</div>
+		
 	</body>	
 
 Step 16 : Delete button
@@ -124,3 +125,15 @@ Step 16 : Delete button
 		service.deleteTodo(id);
 		return "redirect:/list-todos";
 	}
+	
+	
+Step 17 : HTML5 form validation
+
+		<form method="POST">
+			<fieldset class="form-group">
+					<label>Description</label>
+					<input type="text" name="desc" class="form-control"  required="required"/>
+			</fieldset>
+			
+			<button type="submit" class="btn btn-success" >add</button>
+		</form>
