@@ -137,3 +137,37 @@ Step 17 : HTML5 form validation
 			
 			<button type="submit" class="btn btn-success" >add</button>
 		</form>
+		
+Step 18 : Hibernate Validator - Using modelAttribute 
+
+		public class Todo {
+			...........
+			@Size(min=10, message="Enter at least 10 Characters...")
+			private String desc;
+			...........
+	
+
+		@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
+			public String addTodo(ModelMap model, @Valid Todo todo, BindingResult result  ) {
+				
+				if(result.hasErrors()) {
+					return "todo";
+				}
+				service.addTodo((String)model.get("name"), todo.getDesc(), new Date(), false);
+				return "redirect:/list-todos";
+			}
+	
+	
+		<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+		<html>
+		.......
+
+		<form:form method="post" modelAttribute="todo">
+			<fieldset class="form-group">
+				<form:label path="desc" >Description</form:label>
+				<form:input path="desc" type="text" class="form-control" required="required"/>
+				<form:errors path="desc" cssClass="text-warning" />
+			</fieldset>
+			<button type="submit" class="btn btn-success" >add</button>
+		</form:form>
+
