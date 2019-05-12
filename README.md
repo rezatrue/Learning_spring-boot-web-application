@@ -171,3 +171,30 @@ Step 18 : Hibernate Validator - Using modelAttribute
 			<button type="submit" class="btn btn-success" >add</button>
 		</form:form>
 
+................................
+install "Eclipse Java EE Developer Tools 3.13" plugin for JSP pages
+install "DevStyle" plugin only change view
+................................
+		
+		
+Step 19 : Updating Todo
+
+
+	@RequestMapping(value = "/update-todo", method = RequestMethod.POST)
+	public String updateTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "todo";
+		}
+		todo.setUser((String) model.get("name"));
+		service.updateTodo(todo);
+		return "redirect:/list-todos";
+	}
+
+	public void updateTodo(Todo todo) {
+    	todos.remove(todo);
+    	todos.add(todo);
+    }
+	
+	
+	// optional <form:hidden path="id"/>
