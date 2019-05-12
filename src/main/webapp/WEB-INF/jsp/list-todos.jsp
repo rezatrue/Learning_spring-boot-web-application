@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +29,7 @@
 			<tr>
 				<td>${loop.index + 1}</td>
 				<td>${item.desc}</td>
-				<td>${item.targetDate}</td>
+				<td><fmt:formatDate value="${item.targetDate}" pattern="dd/MM/yyyy" /></td>
 				<td>${!(item.done)? "No" : "Yes"}</td>
 				<td><div><a type ="button" class="btn btn-success" href="/update-todo?id=${item.id}">Update</a></div></td>
 				<td><div><a type ="button" class="btn btn-warning" href="/delete-todo?id=${item.id}">Delete</a></div></td>

@@ -198,3 +198,43 @@ Step 19 : Updating Todo
 	
 	
 	// optional <form:hidden path="id"/>
+	
+Step 20 : Handle Date with initBinder 
+
+	@InitBinder
+	public void initDataBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+	}
+	
+	....
+	service.addTodo((String)model.get("name"), todo.getDesc(), todo.getTargetDate(), false);
+	...
+	
+	<fieldset class="form-group">
+		<form:label path="targetDate" >Target Date</form:label>
+		<form:input path="targetDate" type="text" class="form-control" required="required"/>
+		<form:errors path="targetDate" cssClass="text-warning" />
+	</fieldset>
+	
+	
+	<dependency>
+		<groupId>org.webjars</groupId>
+		<artifactId>bootstrap-datepicker</artifactId>
+		<version>1.0.1</version>
+	</dependency>
+	
+	<script src="webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"></script>
+	<script>
+		$('#targetDate').datepicker({
+			format : 'dd/mm/yyyy'
+		});	
+	</script>
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+	<html>
+	........
+	<td><fmt:formatDate value="${item.targetDate}" pattern="dd/MM/yyyy" /></td>
+	
+	
+	
