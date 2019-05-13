@@ -249,4 +249,4 @@ Step 21 : JSP Fragments
 
 	<%@ include file="common/footer.jspf" %>
 	
-	
+Step 22 : 
