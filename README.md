@@ -249,4 +249,22 @@ Step 21 : JSP Fragments
 
 	<%@ include file="common/footer.jspf" %>
 	
-Step 22 : 
+Step 22 :  Preparing for Spring Security
+Step 23 :  Initial Spring Security Setup
+
+		@Configuration
+	public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+		@Autowired
+		public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+			auth.inMemoryAuthentication().withUser("ali").password("{noop}123").roles("USER", "ADMIN");
+		}
+		
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+			http.authorizeRequests().antMatchers("/login").permitAll()
+					.antMatchers("/", "/*todo*/**").access("hasRole('USER')").and()
+					.formLogin();
+		}
+
+	}
