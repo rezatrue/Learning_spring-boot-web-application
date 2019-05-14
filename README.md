@@ -268,3 +268,31 @@ Step 23 :  Initial Spring Security Setup
 		}
 
 	}
+	
+	
+Step 24 :  Refactor and add Logout Functionality using Spring Security
+
+	@SessionAttributes("name") :-> removed
+
+	public String getLoggedinUserName() {
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if(principal instanceof UserDetails) {
+			return ((UserDetails) principal).getUsername();
+		}		
+		return principal.toString();
+	}
+	
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if(authentication!=null) {
+			new SecurityContextLogoutHandler().logout(request, response, authentication);
+		}
+		return "redirect:/";
+	}
+	
+	
+	
